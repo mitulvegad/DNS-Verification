@@ -49,7 +49,7 @@ async def list_websites(
             verification_method=w.verification_method,
             recommended_method=recommend_method(w.normalized_hostname),
             available_methods=["dns_txt", "http_file", "meta_tag", "http_header", "dns_cname"],
-            verification=build_instructions(w, "<hidden>"),
+            verification=build_instructions(w, w.verification_token_hash),
             expires_at=w.verification_expires_at
         )
         for w in websites
@@ -82,12 +82,12 @@ async def add_website(
             verification_method=existing_website.verification_method,
             recommended_method=recommend_method(existing_website.normalized_hostname),
             available_methods=["dns_txt", "http_file", "meta_tag", "http_header", "dns_cname"],
-            verification=build_instructions(existing_website, "<hidden>"),
+            verification=build_instructions(existing_website, existing_website.verification_token_hash),
             expires_at=existing_website.verification_expires_at
         )
         
     token = generate_verification_token()
-    token_hash = hash_token(token)
+    token_hash = token
     expires_at = datetime.now(timezone.utc) + timedelta(hours=24)
     rec_method = recommend_method(hostname)
     
@@ -140,7 +140,7 @@ async def get_website(
         verification_method=website.verification_method,
         recommended_method=recommend_method(website.normalized_hostname),
         available_methods=["dns_txt", "http_file", "meta_tag", "http_header", "dns_cname"],
-        verification=build_instructions(website, "<hidden>"),
+        verification=build_instructions(website, website.verification_token_hash),
         expires_at=website.verification_expires_at
     )
 
@@ -177,7 +177,7 @@ async def rotate_token(
         raise HTTPException(status_code=404, detail="Website not found.")
         
     token = generate_verification_token()
-    website.verification_token_hash = hash_token(token)
+    website.verification_token_hash = token
     website.verification_expires_at = datetime.now(timezone.utc) + timedelta(hours=24)
     website.verification_status = "pending"
     await db.commit()
