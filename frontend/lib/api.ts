@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000/api"; // Updated to use the /api prefix you configured earlier
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api";
 
 function getAuthHeader() {
     const token = localStorage.getItem("token");
