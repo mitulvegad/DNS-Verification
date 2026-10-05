@@ -4,9 +4,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { login } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardTitle, CardDescription } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import { Shield, Lock, Key, ArrowRight } from "lucide-react";
 
 function LoginForm() {
     const [email, setEmail] = useState("");
@@ -23,7 +23,8 @@ function LoginForm() {
         }
     }, [searchParams]);
 
-    const handleLogin = async () => {
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
         setError("");
         setSuccessMsg("");
         setLoading(true);
@@ -39,96 +40,105 @@ function LoginForm() {
     };
 
     return (
-        <Card className="w-full max-w-md shadow-2xl border-0 overflow-hidden rounded-2xl relative z-10">
-            <div className="bg-primary p-6 text-center">
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-inner">
-                    <span className="text-primary text-xl font-black">CG</span>
+        <form onSubmit={handleLogin} className="w-full max-w-md bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] rounded-3xl p-8 sm:p-10 relative z-10">
+            <div className="flex justify-center mb-8">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/30 rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <Shield className="w-8 h-8 text-white" />
                 </div>
-                <CardTitle className="text-2xl text-white font-bold tracking-tight">CyberGuard V2</CardTitle>
-                <CardDescription className="text-primary-foreground/80 mt-1">Enterprise-grade security monitoring</CardDescription>
             </div>
-            <CardContent className="p-6 sm:p-8 space-y-5 bg-card">
-                {successMsg && <div className="bg-green-50 border-l-4 border-green-500 p-3 text-green-700 text-sm font-medium rounded-r-md">{successMsg}</div>}
-                {error && <div className="bg-red-50 border-l-4 border-red-500 p-3 text-red-700 text-sm font-medium rounded-r-md">{error}</div>}
+            
+            <div className="text-center mb-8">
+                <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Welcome Back</h1>
+                <p className="text-slate-500 mt-2 text-sm font-medium">Enter your credentials to access the secure portal</p>
+            </div>
+
+            {successMsg && <div className="bg-emerald-50 border border-emerald-200 text-emerald-700 p-4 rounded-xl text-sm font-semibold mb-6 flex items-center gap-3"><Shield className="w-4 h-4"/>{successMsg}</div>}
+            {error && <div className="bg-rose-50 border border-rose-200 text-rose-700 p-4 rounded-xl text-sm font-semibold mb-6 flex items-center gap-3"><Lock className="w-4 h-4"/>{error}</div>}
+            
+            <div className="space-y-5">
+                <div className="space-y-2 relative">
+                    <Label htmlFor="email" className="text-slate-700 font-bold text-xs uppercase tracking-wider ml-1">Email Address</Label>
+                    <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" /></svg>
+                        </div>
+                        <Input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="admin@yourcompany.com" className="h-14 pl-12 bg-slate-50/50 border-slate-200 rounded-xl focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-medium text-slate-900" required />
+                    </div>
+                </div>
                 
-                <div className="space-y-2">
-                    <Label htmlFor="email" className="text-slate-700 font-semibold">Email Address</Label>
-                    <Input 
-                        id="email"
-                        type="email" 
-                        value={email} 
-                        onChange={e => setEmail(e.target.value)} 
-                        placeholder="admin@yourcompany.com"
-                        className="h-12 px-4 bg-slate-50 border-slate-200 focus:bg-white transition-colors"
-                    />
+                <div className="space-y-2 relative">
+                    <div className="flex items-center justify-between ml-1">
+                        <Label htmlFor="password" className="text-slate-700 font-bold text-xs uppercase tracking-wider">Password</Label>
+                        <a href="#" className="text-xs font-semibold text-blue-600 hover:text-blue-700">Forgot?</a>
+                    </div>
+                    <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                            <Key className="w-5 h-5" />
+                        </div>
+                        <Input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" className="h-14 pl-12 bg-slate-50/50 border-slate-200 rounded-xl focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all font-medium text-slate-900" required />
+                    </div>
                 </div>
-                <div className="space-y-2">
-                    <Label htmlFor="password" className="text-slate-700 font-semibold">Password</Label>
-                    <Input 
-                        id="password"
-                        type="password" 
-                        value={password} 
-                        onChange={e => setPassword(e.target.value)} 
-                        placeholder="••••••••"
-                        className="h-12 px-4 bg-slate-50 border-slate-200 focus:bg-white transition-colors"
-                    />
-                </div>
-                <div className="pt-4">
-                    <Button 
-                        className="w-full h-12 text-base font-semibold shadow-md transition-all hover:-translate-y-0.5 active:translate-y-0" 
-                        onClick={handleLogin}
-                        disabled={loading}
-                    >
-                        {loading ? "Authenticating..." : "Sign In to Dashboard"}
-                    </Button>
-                </div>
-                <div className="text-center text-sm mt-6 text-slate-500">
-                    New to CyberGuard? <Link href="/register" className="text-primary font-semibold hover:underline">Create an account</Link>
-                </div>
-            </CardContent>
-        </Card>
+            </div>
+
+            <Button type="submit" disabled={loading} className="w-full h-14 mt-8 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-base shadow-lg shadow-slate-900/20 transition-all hover:scale-[1.02] active:scale-[0.98] group flex items-center justify-center gap-2">
+                {loading ? "Authenticating..." : "Sign In to Workspace"}
+                {!loading && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
+            </Button>
+            
+            <p className="text-center mt-8 text-sm font-medium text-slate-500">
+                Don't have an account? <Link href="/register" className="text-blue-600 font-bold hover:underline decoration-2 underline-offset-2">Create one</Link>
+            </p>
+        </form>
     );
 }
 
 export default function LoginPage() {
     return (
-        <div className="min-h-screen grid lg:grid-cols-2 bg-[var(--background)]">
-            <div className="flex flex-col items-center justify-center p-4 sm:p-8 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] relative">
-                <Suspense fallback={<div className="text-primary font-bold animate-pulse">Loading secure environment...</div>}>
+        <div className="min-h-screen grid lg:grid-cols-2 bg-slate-50">
+            {/* Left: Form Area */}
+            <div className="flex flex-col items-center justify-center p-6 relative overflow-hidden bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/50 via-slate-50 to-slate-100">
+                <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none"></div>
+                <Suspense fallback={<div className="animate-pulse font-bold text-blue-600">Loading secure tunnel...</div>}>
                     <LoginForm />
                 </Suspense>
-                <p className="mt-8 text-xs text-slate-400 font-medium">Protected by AES-256 & Argon2id</p>
             </div>
             
-            <div className="hidden lg:flex flex-col justify-center bg-gradient-to-br from-[#00334E] to-[#145374] p-12 relative overflow-hidden">
-                {/* Floating Elements */}
-                <div className="absolute top-1/4 left-10 animate-[bounce_6s_ease-in-out_infinite] bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-white flex items-center gap-4 shadow-2xl">
-                    <div className="bg-green-400 p-3 rounded-lg text-xl">🛡️</div>
-                    <div>
-                        <div className="font-bold text-lg">Continuous Scanning</div>
-                        <div className="text-sm text-blue-100">24/7 vulnerability detection</div>
-                    </div>
-                </div>
+            {/* Right: Feature Presentation */}
+            <div className="hidden lg:flex flex-col justify-center items-center bg-slate-950 p-16 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_20%,transparent_100%)]"></div>
                 
-                <div className="absolute bottom-1/3 right-10 animate-[bounce_8s_ease-in-out_infinite_reverse] bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-white flex items-center gap-4 shadow-2xl">
-                    <div className="bg-blue-400 p-3 rounded-lg text-xl">🌐</div>
-                    <div>
-                        <div className="font-bold text-lg">Multi-Method Auth</div>
-                        <div className="text-sm text-blue-100">DNS, HTML, and HTTP</div>
+                {/* Glowing Orbs */}
+                <div className="absolute top-1/4 -left-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-screen filter blur-[100px] opacity-40 animate-pulse"></div>
+                <div className="absolute bottom-1/4 -right-20 w-72 h-72 bg-indigo-500 rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-pulse delay-1000"></div>
+                
+                <div className="relative z-10 w-full max-w-lg">
+                    <div className="mb-12">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-blue-300 text-sm font-semibold mb-6 backdrop-blur-sm">
+                            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                            CyberGuard V2 Architecture
+                        </div>
+                        <h2 className="text-5xl font-black text-white mb-6 leading-[1.1] tracking-tight">The Modern Standard for Domain Security.</h2>
+                        <p className="text-slate-400 text-lg leading-relaxed">Instantly verify infrastructure ownership using zero-downtime multi-method validation. Built for modern DevOps and cloud-native scaling.</p>
                     </div>
-                </div>
 
-                <div className="absolute top-2/3 left-1/4 animate-[pulse_5s_ease-in-out_infinite] bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-white flex items-center gap-4 shadow-2xl transform scale-90">
-                    <div className="bg-purple-400 p-3 rounded-lg text-xl">⚡</div>
-                    <div>
-                        <div className="font-bold text-lg">Zero Downtime</div>
-                        <div className="text-sm text-blue-100">Silent infrastructure analysis</div>
+                    <div className="space-y-4">
+                        <div className="group bg-white/5 border border-white/10 p-5 rounded-2xl backdrop-blur-md hover:bg-white/10 transition-colors cursor-default flex items-center gap-4">
+                            <div className="bg-blue-500/20 text-blue-400 p-3 rounded-xl group-hover:scale-110 transition-transform"><Shield className="w-6 h-6"/></div>
+                            <div>
+                                <h4 className="text-white font-bold text-lg">Bank-Level Encryption</h4>
+                                <p className="text-slate-400 text-sm">Argon2id password hashing & AES-256 data protection</p>
+                            </div>
+                        </div>
+                        <div className="group bg-white/5 border border-white/10 p-5 rounded-2xl backdrop-blur-md hover:bg-white/10 transition-colors cursor-default flex items-center gap-4">
+                            <div className="bg-indigo-500/20 text-indigo-400 p-3 rounded-xl group-hover:scale-110 transition-transform">
+                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold text-lg">5-Method Verification</h4>
+                                <p className="text-slate-400 text-sm">DNS TXT, CNAME, Meta Tag, HTTP File, and HTTP Header</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div className="relative z-10 max-w-lg mx-auto text-center mt-20">
-                    <h2 className="text-4xl font-extrabold text-white mb-6">Enterprise Web Security</h2>
-                    <p className="text-blue-100 text-lg leading-relaxed">CyberGuard monitors your digital assets using state-of-the-art verification methods. Prove ownership safely and securely without exposing your infrastructure.</p>
                 </div>
             </div>
         </div>
