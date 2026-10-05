@@ -9,7 +9,7 @@ import { Shield, ShieldAlert, Search, ShieldCheck, Activity, Lock, ArrowRight, C
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 font-sans selection:bg-emerald-500/30">
+    <div className="min-h-screen bg-white dark:bg-slate-950 font-sans selection:bg-cyan-500/30">
       <Navbar />
 
       <main>
@@ -25,12 +25,12 @@ export default function LandingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-sm font-semibold mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-cyan-500/10 border border-emerald-200 dark:border-cyan-500/20 text-emerald-600 dark:text-cyan-400 text-sm font-semibold mb-8">
                 <Shield className="w-4 h-4" /> Website Security, Simplified.
               </div>
               
               <h1 className="text-5xl lg:text-7xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tight mb-6">
-                Complete Security <br className="hidden md:block"/>for Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400">Website</span>
+                Complete Security <br className="hidden md:block"/>for Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-cyan-400">Website</span>
               </h1>
               
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-xl leading-relaxed">
@@ -38,7 +38,7 @@ export default function LandingPage() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <Link href="/register" className="h-14 px-8 flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:from-emerald-400 hover:to-emerald-300 text-white rounded-xl font-bold text-lg shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all hover:scale-105 active:scale-95 group">
+                <Link href="/register" className="h-14 px-8 flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-white rounded-xl font-bold text-lg shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all hover:scale-105 active:scale-95 group">
                   Get Started Free <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <a href="#features" className="h-14 px-8 flex items-center justify-center gap-2 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 text-slate-900 dark:text-white rounded-xl font-bold text-lg transition-colors">
@@ -47,9 +47,9 @@ export default function LandingPage() {
               </div>
               
               <div className="flex flex-wrap gap-6 text-sm font-semibold text-slate-500 dark:text-slate-400">
-                <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-500"/> No credit card required</div>
-                <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-500"/> Setup in minutes</div>
-                <div className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-500"/> 24/7 Monitoring</div>
+                <div className="flex items-center gap-2"><Check className="w-4 h-4 text-cyan-500"/> No credit card required</div>
+                <div className="flex items-center gap-2"><Check className="w-4 h-4 text-cyan-500"/> Setup in minutes</div>
+                <div className="flex items-center gap-2"><Check className="w-4 h-4 text-cyan-500"/> 24/7 Monitoring</div>
               </div>
             </motion.div>
 
@@ -117,9 +117,9 @@ export default function LandingPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="text-emerald-400 font-bold text-sm uppercase tracking-wider mb-4">Why CyberGuard?</div>
+                <div className="text-cyan-400 font-bold text-sm uppercase tracking-wider mb-4">Why CyberGuard?</div>
                 <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-                  Proactive Security for a <br/><span className="text-emerald-400">Safer Tomorrow.</span>
+                  Proactive Security for a <br/><span className="text-cyan-400">Safer Tomorrow.</span>
                 </h2>
                 <p className="text-slate-400 text-lg mb-8 leading-relaxed max-w-lg">
                   CyberGuard gives you the tools to stay ahead of cyber threats. From DNS monitoring to real-time alerts, everything you need to keep your website and data safe — in one place.
@@ -127,7 +127,7 @@ export default function LandingPage() {
                 <div className="space-y-4">
                   {['All-in-one security dashboard', 'Real-time threat alerts', 'Easy setup & management', 'Built for developers, businesses & agencies'].map((item, i) => (
                     <div key={i} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center"><Check className="w-3 h-3 text-emerald-400"/></div>
+                      <div className="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center"><Check className="w-3 h-3 text-cyan-400"/></div>
                       <span className="font-semibold text-slate-300">{item}</span>
                     </div>
                   ))}
@@ -153,9 +153,9 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               className="bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl relative overflow-hidden"
             >
-               <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px]"></div>
+               <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px]"></div>
                <div className="text-center md:text-left flex items-center gap-4">
-                  <div className="p-3 bg-white/5 rounded-xl"><ShieldCheck className="w-8 h-8 text-emerald-400"/></div>
+                  <div className="p-3 bg-white/5 rounded-xl"><ShieldCheck className="w-8 h-8 text-cyan-400"/></div>
                   <div>
                     <div className="text-3xl font-black text-white">99.9%</div>
                     <div className="text-slate-400 text-sm font-semibold">Uptime Guarantee</div>
@@ -181,7 +181,7 @@ export default function LandingPage() {
                </div>
                <div className="hidden md:block w-px h-16 bg-white/10"></div>
                <div className="text-center md:text-left flex items-center gap-4">
-                  <div className="p-3 bg-white/5 rounded-xl"><Search className="w-8 h-8 text-emerald-400"/></div>
+                  <div className="p-3 bg-white/5 rounded-xl"><Search className="w-8 h-8 text-cyan-400"/></div>
                   <div>
                     <div className="text-3xl font-black text-white">100+</div>
                     <div className="text-slate-400 text-sm font-semibold">Websites Protected</div>
@@ -210,20 +210,20 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`bg-white dark:bg-slate-900 border ${plan.rec ? 'border-emerald-500 shadow-[0_0_30px_rgba(16,185,129,0.15)] scale-105 z-10' : 'border-slate-200 dark:border-white/10'} rounded-3xl p-8 relative`}
+                  className={`bg-white dark:bg-slate-900 border ${plan.rec ? 'border-cyan-500 shadow-[0_0_30px_rgba(16,185,129,0.15)] scale-105 z-10' : 'border-slate-200 dark:border-white/10'} rounded-3xl p-8 relative`}
                 >
-                  {plan.rec && <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Recommended</div>}
+                  {plan.rec && <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Recommended</div>}
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{plan.name}</h3>
                   <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">{plan.desc}</p>
                   <div className="mb-6"><span className="text-4xl font-black text-slate-900 dark:text-white">{plan.price}</span> <span className="text-slate-500 font-medium">/ month</span></div>
                   <ul className="space-y-4 mb-8">
                     {[1,2,3,4].map(j => (
                       <li key={j} className="flex items-center gap-3 text-sm font-semibold text-slate-700 dark:text-slate-300">
-                        <Check className={`w-4 h-4 ${plan.rec ? 'text-emerald-500' : 'text-blue-500'}`} /> Feature {j} included
+                        <Check className={`w-4 h-4 ${plan.rec ? 'text-cyan-500' : 'text-blue-500'}`} /> Feature {j} included
                       </li>
                     ))}
                   </ul>
-                  <Link href="/register" className={`block text-center w-full py-3 rounded-xl font-bold transition-all ${plan.rec ? 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg' : 'bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-900 dark:text-white'}`}>
+                  <Link href="/register" className={`block text-center w-full py-3 rounded-xl font-bold transition-all ${plan.rec ? 'bg-cyan-500 hover:bg-emerald-600 text-white shadow-lg' : 'bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-900 dark:text-white'}`}>
                     Choose {plan.name}
                   </Link>
                 </motion.div>
@@ -240,7 +240,7 @@ export default function LandingPage() {
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-xl mx-auto">
               Start monitoring and protecting your website with CyberGuard.
             </p>
-            <Link href="/register" className="inline-flex items-center justify-center gap-2 h-16 px-10 bg-gradient-to-r from-emerald-500 to-emerald-400 hover:from-emerald-400 hover:to-emerald-300 text-white rounded-2xl font-bold text-xl shadow-[0_0_30px_rgba(16,185,129,0.3)] transition-all hover:scale-105 active:scale-95 group">
+            <Link href="/register" className="inline-flex items-center justify-center gap-2 h-16 px-10 bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 text-white rounded-2xl font-bold text-xl shadow-[0_0_30px_rgba(16,185,129,0.3)] transition-all hover:scale-105 active:scale-95 group">
               Start Securing My Website <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -254,24 +254,24 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
             <div>
               <Link href="/" className="flex items-center gap-2 group mb-2">
-                <Shield className="w-6 h-6 text-emerald-500" />
+                <Shield className="w-6 h-6 text-cyan-500" />
                 <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">CyberGuard</span>
               </Link>
               <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">Website security, monitoring and protection.</p>
             </div>
             <div className="flex flex-wrap items-center gap-6 text-sm font-semibold text-slate-600 dark:text-slate-300">
-              <a href="#features" className="hover:text-emerald-500 transition-colors">Features</a>
-              <a href="#pricing" className="hover:text-emerald-500 transition-colors">Pricing</a>
-              <a href="#about" className="hover:text-emerald-500 transition-colors">About</a>
-              <a href="#" className="hover:text-emerald-500 transition-colors">Contact</a>
-              <a href="#" className="hover:text-emerald-500 transition-colors">Privacy</a>
-              <a href="#" className="hover:text-emerald-500 transition-colors">Terms</a>
+              <a href="#features" className="hover:text-cyan-500 transition-colors">Features</a>
+              <a href="#pricing" className="hover:text-cyan-500 transition-colors">Pricing</a>
+              <a href="#about" className="hover:text-cyan-500 transition-colors">About</a>
+              <a href="#" className="hover:text-cyan-500 transition-colors">Contact</a>
+              <a href="#" className="hover:text-cyan-500 transition-colors">Privacy</a>
+              <a href="#" className="hover:text-cyan-500 transition-colors">Terms</a>
             </div>
           </div>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-400 dark:text-slate-500">
             <p>© 2026 CyberGuard. All rights reserved.</p>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
               All Systems Operational
             </div>
           </div>

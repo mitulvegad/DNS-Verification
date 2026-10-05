@@ -21,7 +21,7 @@ function Globe() {
       {/* Core Earth */}
       <mesh ref={earthRef}>
         <sphereGeometry args={[2, 64, 64]} />
-        <meshPhongMaterial color="#020617" emissive="#0f172a" specular="#38bdf8" shininess={100} wireframe={true} wireframeLinewidth={0.5} transparent opacity={0.6} />
+        <meshPhongMaterial color="#0ea5e9" emissive="#0284c7" emissiveIntensity={0.5} specular="#38bdf8" shininess={100} wireframe={true} wireframeLinewidth={1} transparent opacity={0.6} />
       </mesh>
       
       {/* Atmosphere Glow */}
@@ -106,7 +106,7 @@ export function EarthVisual() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="absolute top-[50%] right-[10%] md:right-[20%] bg-slate-900/90 backdrop-blur-md border border-white/10 p-4 rounded-2xl flex items-start gap-4 shadow-2xl max-w-[280px]"
         >
-          <div className="bg-emerald-500/20 p-2 rounded-lg mt-1"><Lock className="w-5 h-5 text-emerald-500" /></div>
+          <div className="bg-cyan-500/20 p-2 rounded-lg mt-1"><Lock className="w-5 h-5 text-cyan-400" /></div>
           <div>
             <h4 className="text-white font-bold text-sm">SSL Certificate</h4>
             <p className="text-slate-400 text-xs mt-1 leading-relaxed">Certificate is valid and secure.</p>
