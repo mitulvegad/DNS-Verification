@@ -40,7 +40,7 @@ function LoginForm() {
     };
 
     return (
-        <form onSubmit={handleLogin} className="w-full max-w-md bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] rounded-3xl p-8 sm:p-10 relative z-10">
+        <form onSubmit={handleLogin} className="w-full max-w-md bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] rounded-3xl p-8 sm:p-10 relative z-10" style={{ animation: 'slideLeftToRight 0.6s cubic-bezier(0.16, 1, 0.3, 1)' }}>
             <div className="flex justify-center mb-8">
                 <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/30 rotate-3 hover:rotate-0 transition-transform duration-300">
                     <Shield className="w-8 h-8 text-white" />
@@ -94,9 +94,9 @@ function LoginForm() {
 
 export default function LoginPage() {
     return (
-        <div className="min-h-screen grid lg:grid-cols-2 bg-slate-50">
+        <div className="min-h-screen grid lg:grid-cols-2 bg-slate-50 overflow-hidden">
             {/* Left: Form Area */}
-            <div className="flex flex-col items-center justify-center p-6 relative overflow-hidden bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/50 via-slate-50 to-slate-100">
+            <div className="flex flex-col items-center justify-center p-6 relative bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-blue-100/50 via-slate-50 to-slate-100">
                 <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none"></div>
                 <Suspense fallback={<div className="animate-pulse font-bold text-blue-600">Loading secure tunnel...</div>}>
                     <LoginForm />
@@ -104,7 +104,7 @@ export default function LoginPage() {
             </div>
             
             {/* Right: Feature Presentation */}
-            <div className="hidden lg:flex flex-col justify-center items-center bg-slate-950 p-16 relative overflow-hidden">
+            <div className="hidden lg:flex flex-col justify-center items-center bg-slate-950 p-16 relative" style={{ animation: 'scaleUp 0.8s cubic-bezier(0.16, 1, 0.3, 1)' }}>
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_20%,transparent_100%)]"></div>
                 
                 {/* Glowing Orbs */}
@@ -127,15 +127,6 @@ export default function LoginPage() {
                             <div>
                                 <h4 className="text-white font-bold text-lg">Bank-Level Encryption</h4>
                                 <p className="text-slate-400 text-sm">Argon2id password hashing & AES-256 data protection</p>
-                            </div>
-                        </div>
-                        <div className="group bg-white/5 border border-white/10 p-5 rounded-2xl backdrop-blur-md hover:bg-white/10 transition-colors cursor-default flex items-center gap-4">
-                            <div className="bg-indigo-500/20 text-indigo-400 p-3 rounded-xl group-hover:scale-110 transition-transform">
-                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                            </div>
-                            <div>
-                                <h4 className="text-white font-bold text-lg">5-Method Verification</h4>
-                                <p className="text-slate-400 text-sm">DNS TXT, CNAME, Meta Tag, HTTP File, and HTTP Header</p>
                             </div>
                         </div>
                     </div>

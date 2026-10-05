@@ -30,10 +30,10 @@ export default function RegisterPage() {
     };
 
     return (
-        <div className="min-h-screen grid lg:grid-cols-2 bg-slate-50 flex-row-reverse">
+        <div className="min-h-screen grid lg:grid-cols-2 bg-slate-50 overflow-hidden">
             
-            {/* Right/Feature Area */}
-            <div className="hidden lg:flex flex-col justify-center items-center bg-slate-950 p-16 relative overflow-hidden order-1 lg:order-2">
+            {/* Left: Feature Presentation */}
+            <div className="hidden lg:flex flex-col justify-center items-center bg-slate-950 p-16 relative" style={{ animation: 'scaleUp 0.8s cubic-bezier(0.16, 1, 0.3, 1)' }}>
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_20%,transparent_100%)]"></div>
                 
                 {/* Glowing Orbs */}
@@ -58,19 +58,15 @@ export default function RegisterPage() {
                             <div className="text-3xl font-black text-white mb-1">&lt; 50ms</div>
                             <div className="text-slate-400 text-sm font-medium">Verification Latency</div>
                         </div>
-                        <div className="bg-white/5 border border-white/10 p-5 rounded-2xl backdrop-blur-md col-span-2 flex items-center justify-between">
-                            <div className="text-slate-300 font-medium">Compatible with Cloudflare, Vercel, AWS, and 50+ providers.</div>
-                            <div className="bg-white/10 p-2 rounded-lg"><ArrowRight className="w-5 h-5 text-emerald-400"/></div>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* Left/Form Area */}
-            <div className="flex flex-col items-center justify-center p-6 relative overflow-hidden bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-emerald-50/50 via-slate-50 to-slate-100 order-2 lg:order-1">
+            {/* Right: Form Area */}
+            <div className="flex flex-col items-center justify-center p-6 relative bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-emerald-50/50 via-slate-50 to-slate-100">
                 <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] pointer-events-none"></div>
                 
-                <form onSubmit={handleRegister} className="w-full max-w-md bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] rounded-3xl p-8 sm:p-10 relative z-10">
+                <form onSubmit={handleRegister} className="w-full max-w-md bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] rounded-3xl p-8 sm:p-10 relative z-10" style={{ animation: 'slideRightToLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1)' }}>
                     <div className="flex justify-center mb-8">
                         <div className="w-16 h-16 bg-gradient-to-tr from-slate-900 to-slate-700 rounded-2xl flex items-center justify-center shadow-lg shadow-slate-900/30">
                             <UserPlus className="w-8 h-8 text-white" />
