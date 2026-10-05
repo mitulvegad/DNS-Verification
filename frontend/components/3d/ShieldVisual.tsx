@@ -41,25 +41,23 @@ function ShieldGeometry() {
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
       <mesh ref={meshRef} position={[0, 0, 0]}>
         <extrudeGeometry args={[shape, extrudeSettings]} />
-        <MeshTransmissionMaterial 
-          backside 
-          samples={4} 
-          thickness={0.5} 
-          chromaticAberration={0.5} 
-          anisotropy={0.3} 
-          distortion={0.5} 
-          distortionScale={0.5} 
-          temporalDistortion={0.1} 
+        <meshPhysicalMaterial 
           color="#0ea5e9"
           emissive="#0284c7"
-          emissiveIntensity={0.2}
+          emissiveIntensity={0.8}
+          roughness={0.2}
+          metalness={0.8}
+          clearcoat={1}
+          clearcoatRoughness={0.1}
+          transparent={true}
+          opacity={0.8}
         />
       </mesh>
       
       {/* Inner glowing lock representation */}
       <mesh position={[0, -0.2, 0.3]}>
         <sphereGeometry args={[0.4, 32, 32]} />
-        <meshStandardMaterial color="#10b981" emissive="#10b981" emissiveIntensity={2} toneMapped={false} />
+        <meshStandardMaterial color="#06b6d4" emissive="#06b6d4" emissiveIntensity={2} toneMapped={false} />
       </mesh>
       
       {/* Orbiting rings */}
@@ -69,7 +67,7 @@ function ShieldGeometry() {
       </mesh>
       <mesh rotation={[Math.PI / 2.2, 0.2, 0]}>
         <torusGeometry args={[3, 0.01, 16, 100]} />
-        <meshBasicMaterial color="#10b981" transparent opacity={0.2} />
+        <meshBasicMaterial color="#06b6d4" transparent opacity={0.2} />
       </mesh>
     </Float>
   );
@@ -126,12 +124,13 @@ function Particles() {
 export function ShieldVisual() {
   return (
     <div className="relative w-full h-[600px] flex items-center justify-center">
-      {/* 3D Canvas */}
-      <div className="absolute inset-0 z-10">
+      
+      {/* 3D Canvas (z-10) */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
         <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} intensity={1} />
-          <pointLight position={[-10, -10, -10]} color="#10b981" intensity={1} />
+          <pointLight position={[-10, -10, -10]} color="#06b6d4" intensity={1} />
           <ShieldGeometry />
           <Particles />
           <Environment preset="city" />
@@ -139,15 +138,13 @@ export function ShieldVisual() {
         </Canvas>
       </div>
 
-      {/* HTML Floating Cards */}
-      <div className="absolute inset-0 z-20 pointer-events-none">
-        
-        {/* Dashboard Mockup Behind Shield */}
+      {/* Dashboard Mockup Behind Shield (z-0) */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <motion.div 
           initial={{ opacity: 0, scale: 0.9, x: 20 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[320px] bg-[#0B1221]/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden hidden md:block -z-10 mt-10 ml-20"
+          className="absolute top-1/2 left-1/2 -translate-x-[60%] -translate-y-[55%] w-[500px] h-[320px] bg-[#0B1221]/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden hidden md:block mt-10"
         >
           <div className="flex h-full">
             <div className="w-32 border-r border-white/5 p-4 space-y-4">
