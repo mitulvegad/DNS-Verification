@@ -157,11 +157,11 @@ export function ShieldVisual() {
               <div className="h-8 rounded flex items-center px-2 text-xs text-slate-400"><ShieldAlert className="w-3 h-3 mr-2"/> Reports</div>
             </div>
             <div className="flex-1 p-6">
-              <div className="bg-emerald-500/10 border border-emerald-500/20 p-4 rounded-xl flex items-center gap-4 mb-6">
-                <div className="p-2 bg-emerald-500/20 rounded-lg"><CheckCircle className="w-6 h-6 text-emerald-400"/></div>
+              <div className="bg-cyan-500/10 border border-cyan-500/20 p-4 rounded-xl flex items-center gap-4 mb-6">
+                <div className="p-2 bg-cyan-500/20 rounded-lg"><CheckCircle className="w-6 h-6 text-cyan-400"/></div>
                 <div>
                   <h4 className="text-white font-semibold">Website Protected</h4>
-                  <p className="text-emerald-400 text-xs flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> No threats detected</p>
+                  <p className="text-cyan-400 text-xs flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> No threats detected</p>
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-4 mb-6">
@@ -179,10 +179,10 @@ export function ShieldVisual() {
                 </div>
               </div>
               <div>
-                <p className="text-slate-400 text-[10px] uppercase mb-2 flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Real-time Monitoring</p>
+                <p className="text-slate-400 text-[10px] uppercase mb-2 flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> Real-time Monitoring</p>
                 <div className="h-12 w-full flex items-end gap-1 opacity-50">
-                  {Array.from({length: 20}).map((_, i) => (
-                    <div key={i} className="flex-1 bg-gradient-to-t from-blue-500/20 to-emerald-400/50 rounded-t-sm" style={{ height: `${Math.max(20, Math.random() * 100)}%` }}></div>
+                  {[45, 80, 25, 60, 35, 90, 40, 75, 30, 85, 50, 65, 20, 95, 55, 70, 45, 80, 30, 90].map((height, i) => (
+                    <div key={i} className="flex-1 bg-gradient-to-t from-blue-500/20 to-cyan-400/50 rounded-t-sm" style={{ height: `${height}%` }}></div>
                   ))}
                 </div>
               </div>
