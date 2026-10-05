@@ -161,7 +161,7 @@ export default function DashboardPage() {
                                                 <div className="pl-3">
                                                     <div className="flex items-center gap-3 mb-1">
                                                         <h4 className="font-bold text-lg text-slate-900 group-hover:text-blue-700 transition-colors">{web.normalized_hostname}</h4>
-                                                        <a href={web.original_url} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-slate-600" onClick={e => e.stopPropagation()}><ExternalLink className="w-4 h-4"/></a>
+                                                        <button type="button" onClick={e => { e.preventDefault(); e.stopPropagation(); window.open(web.original_url, '_blank'); }} className="text-slate-400 hover:text-slate-600"><ExternalLink className="w-4 h-4"/></button>
                                                     </div>
                                                     <p className="text-sm text-slate-500 font-medium font-mono">{web.registrable_domain}</p>
                                                 </div>
