@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+pydantic
+sqlalchemy
+asyncpg
+alembic
+dnspython
+passlib[argon2]
+python-multipart
+pyjwt
+tldextract
+pytest
+httpx
