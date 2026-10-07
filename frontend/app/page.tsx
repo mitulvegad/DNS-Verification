@@ -25,7 +25,7 @@ export default function LandingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-cyan-500/10 border border-emerald-200 dark:border-cyan-500/20 text-emerald-600 dark:text-cyan-400 text-sm font-semibold mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-200 dark:border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-sm font-semibold mb-8">
                 <Shield className="w-4 h-4" /> Website Security, Simplified.
               </div>
               
@@ -223,7 +223,7 @@ export default function LandingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/register" className={`block text-center w-full py-3 rounded-xl font-bold transition-all ${plan.rec ? 'bg-cyan-500 hover:bg-emerald-600 text-white shadow-lg' : 'bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-900 dark:text-white'}`}>
+                  <Link href="/register" className={`block text-center w-full py-3 rounded-xl font-bold transition-all ${plan.rec ? 'bg-cyan-500 hover:bg-cyan-600 text-white shadow-lg' : 'bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-900 dark:text-white'}`}>
                     Choose {plan.name}
                   </Link>
                 </motion.div>

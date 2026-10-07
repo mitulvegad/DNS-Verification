@@ -39,36 +39,38 @@ function ShieldGeometry() {
 
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-      <mesh ref={meshRef} position={[0, 0, 0]}>
-        <extrudeGeometry args={[shape, extrudeSettings]} />
-        <meshPhysicalMaterial 
-          color="#0ea5e9"
-          emissive="#0284c7"
-          emissiveIntensity={0.8}
-          roughness={0.2}
-          metalness={0.8}
-          clearcoat={1}
-          clearcoatRoughness={0.1}
-          transparent={true}
-          opacity={0.8}
-        />
-      </mesh>
-      
-      {/* Inner glowing lock representation */}
-      <mesh position={[0, -0.2, 0.3]}>
-        <sphereGeometry args={[0.4, 32, 32]} />
-        <meshStandardMaterial color="#06b6d4" emissive="#06b6d4" emissiveIntensity={2} toneMapped={false} />
-      </mesh>
-      
-      {/* Orbiting rings */}
-      <mesh rotation={[Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[2.5, 0.02, 16, 100]} />
-        <meshBasicMaterial color="#06b6d4" transparent opacity={0.3} />
-      </mesh>
-      <mesh rotation={[Math.PI / 2.2, 0.2, 0]}>
-        <torusGeometry args={[3, 0.01, 16, 100]} />
-        <meshBasicMaterial color="#06b6d4" transparent opacity={0.2} />
-      </mesh>
+      <group position={[1.5, 0, 0]}>
+        <mesh ref={meshRef}>
+          <extrudeGeometry args={[shape, extrudeSettings]} />
+          <meshPhysicalMaterial 
+            color="#0ea5e9"
+            emissive="#0284c7"
+            emissiveIntensity={0.8}
+            roughness={0.2}
+            metalness={0.8}
+            clearcoat={1}
+            clearcoatRoughness={0.1}
+            transparent={true}
+            opacity={0.8}
+          />
+        </mesh>
+        
+        {/* Inner glowing lock representation */}
+        <mesh position={[0, -0.2, 0.3]}>
+          <sphereGeometry args={[0.4, 32, 32]} />
+          <meshStandardMaterial color="#06b6d4" emissive="#06b6d4" emissiveIntensity={2} toneMapped={false} />
+        </mesh>
+        
+        {/* Orbiting rings */}
+        <mesh rotation={[Math.PI / 2, 0, 0]}>
+          <torusGeometry args={[2.5, 0.02, 16, 100]} />
+          <meshBasicMaterial color="#06b6d4" transparent opacity={0.3} />
+        </mesh>
+        <mesh rotation={[Math.PI / 2.2, 0.2, 0]}>
+          <torusGeometry args={[3, 0.01, 16, 100]} />
+          <meshBasicMaterial color="#06b6d4" transparent opacity={0.2} />
+        </mesh>
+      </group>
     </Float>
   );
 }

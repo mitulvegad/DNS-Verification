@@ -58,7 +58,7 @@ export function Navbar() {
           <Link href="/login" className="px-4 py-2 text-sm font-semibold text-slate-700 dark:text-white border border-slate-300 dark:border-white/20 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 transition-colors">
             Sign In
           </Link>
-          <Link href="/register" className="px-5 py-2 text-sm font-bold text-white bg-gradient-to-r from-emerald-500 to-emerald-400 hover:from-emerald-400 hover:to-emerald-300 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all hover:scale-105">
+          <Link href="/register" className="px-5 py-2 text-sm font-bold text-white bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all hover:scale-105">
             Get Started &rarr;
           </Link>
         </div>
@@ -85,7 +85,7 @@ export function Navbar() {
               <a href="#about" onClick={() => setMobileMenu(false)} className="text-slate-900 dark:text-slate-200 font-medium">About</a>
               <hr className="border-slate-200 dark:border-white/10" />
               <Link href="/login" className="text-slate-900 dark:text-slate-200 font-medium">Sign In</Link>
-              <Link href="/register" className="text-emerald-500 font-bold">Get Started</Link>
+              <Link href="/register" className="text-cyan-500 font-bold">Get Started</Link>
             </div>
           </motion.div>
         )}
